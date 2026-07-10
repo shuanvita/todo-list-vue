@@ -1,15 +1,18 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Nunito', sans-serif;
-  --default-font-size: 18px;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Instrument Serif ', serif;
+  --default-font-size: 16px;
   --default-line-height: 1.5;
-  --color-foreground: #000000;
-  --color-background: #ffffff;
-  --color-default: #000000;
-  --color-primary: #7c3aed;
-  --color-secondary: #ede9fe;
-  --color-secondary-300: #c4b5fd;
+  --color-fg: #f0ebe2;
+  --color-fg-muted: #7a7060;
+  --color-background: #12110f;
+  --color-card: #1c1a17;
+  --color-primary: #e8a645;
+  --color-primary-fg: #12110f;
+  --color-secondary: #252219;
+  --color-stroke: rgba(255, 255, 255, 0.07);
 }
 
 @layer base {
@@ -17,11 +20,11 @@
     font-size: var(--default-font-size);
     font-optical-sizing: auto;
     line-height: var(--default-line-height);
-    color: var(--color-foreground);
+    color: var(--color-fg);
     background-color: var(--color-background);
   }
 }
 
 .container {
-  @apply max-w-360 mx-auto px-4 xl:px-8;
+  @apply mx-auto max-w-360 px-4 xl:px-8;
 }
