@@ -1,18 +1,20 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Instrument Serif ', serif;
+  --font-sans: 'Nunito', sans-serif;
   --default-font-size: 16px;
   --default-line-height: 1.5;
-  --color-fg: #f0ebe2;
-  --color-fg-muted: #7a7060;
-  --color-background: #12110f;
-  --color-card: #1c1a17;
-  --color-primary: #e8a645;
-  --color-primary-fg: #12110f;
+  --color-foreground: #1a0a3c;
+  --color-foreground-muted: #7a7060;
+  --color-muted: #e3dcf7;
+  --color-muted-foreground: #7c6faa;
+  --color-primary: #7c3aed;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a0a3c;
+  --color-primary-fg: #ffffff;
   --color-secondary: #252219;
-  --color-stroke: rgba(255, 255, 255, 0.07);
+  --color-background: #f4f0ff;
+  --color-stroke: #d9cfef;
 }
 
 @layer base {
@@ -20,7 +22,7 @@
     font-size: var(--default-font-size);
     font-optical-sizing: auto;
     line-height: var(--default-line-height);
-    color: var(--color-fg);
+    color: var(--color-foreground);
     background-color: var(--color-background);
   }
 }
