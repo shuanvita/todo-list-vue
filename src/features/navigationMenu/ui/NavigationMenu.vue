@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from './NavigationMenu.types.ts'
+import type { NavigationMenuItem } from '../model/NavigationMenu.types.ts'
 import VSvg from '@/shared/ui/VSvg'
 import { computed, type ComputedRef } from 'vue'
 
