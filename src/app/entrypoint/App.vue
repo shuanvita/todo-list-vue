@@ -3,10 +3,8 @@ import { SidebarNav } from '@/widgets/sidebarNav'
 </script>
 
 <template>
-  <div>
+  <div class="grid grid-cols-[240px_1fr] h-screen">
     <SidebarNav />
     <RouterView />
   </div>
 </template>
-
-<style scoped></style>
