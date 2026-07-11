@@ -7,7 +7,6 @@ const props = defineProps<{
 
 const modules = import.meta.glob('@/shared/assets/svg/**/*.svg', {
   eager: true,
-  import: 'default',
 })
 
 const icon = computed(() => {
