@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VSvg from '@/shared/ui/VSvg'
-import { NavigationMenu, navigationMenuData } from '@/features/navigationMenu'
+import { NavigationMenu } from '@/features/navigationMenu'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import { NavigationMenu, navigationMenuData } from '@/features/navigationMenu'
       </div>
       <div class="text-[20px]/[1.4] font-bold tracking-[-0.5px]">DoIt!</div>
     </div>
-    <NavigationMenu :nav="navigationMenuData.nav" />
+    <NavigationMenu />
   </aside>
 </template>
 
