@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import VSvg from '@/shared/ui/VSvg'
 import { NavigationMenu } from '@/features/navigationMenu'
+import { UserCard } from '@/entities/user'
 </script>
 
 <template>
-  <aside class="gradient px-3 py-8 text-white">
-    <div class="mb-10 flex items-center gap-3 px-3">
-      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/25">
-        <VSvg class="h-5.5 w-5.5" name="logo" />
+  <aside class="gradient px-3 py-8 text-white flex flex-col justify-between">
+    <div>
+      <div class="mb-10 flex items-center gap-3 px-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/25">
+          <VSvg class="h-5.5 w-5.5" name="logo" />
+        </div>
+        <div class="text-[20px]/[1.4] font-bold tracking-[-0.5px]">DoIt!</div>
       </div>
-      <div class="text-[20px]/[1.4] font-bold tracking-[-0.5px]">DoIt!</div>
+      <NavigationMenu />
     </div>
-    <NavigationMenu />
+    <UserCard />
   </aside>
 </template>
 
