@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import VButton from '@/shared/ui/VButton'
+import { useRoute } from 'vue-router'
+
+const router = useRoute()
 </script>
 
 <template>
-  <header><VButton>Button</VButton></header>
+  <header>
+    {{ router.meta.title }}
+    {{ router.meta.subtitle }}
+  </header>
 </template>
 
 <style scoped></style>

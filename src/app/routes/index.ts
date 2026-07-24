@@ -5,6 +5,7 @@ const routes = [
     name: 'dashboard',
     path: '/',
     component: () => import('@/pages/dashboard'),
+    meta: { title: 'Good morning, Mia', subtitle: 'You have 4 tasks to complete today' },
   },
   {
     name: 'tasks',
