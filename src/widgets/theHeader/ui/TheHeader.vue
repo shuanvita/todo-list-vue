@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import VButton from '@/shared/ui/VButton/VButton.vue'
 import { useRoute } from 'vue-router'
+import VSvg from '@/shared/ui/VSvg'
+import { VInput } from '@/shared/ui/VInput'
 
 const router = useRoute()
 </script>
@@ -12,9 +14,11 @@ const router = useRoute()
       <div class="text-foreground-muted text-[14px]">{{ router.meta.subtitle }}</div>
     </div>
     <div class="flex items-center justify-between gap-3">
-      <input placeholder="Search tasks..." type="text" />
-      <VButton>+</VButton>
-      <VButton>Add Task</VButton>
+      <VInput placeholder="Search tasks..." />
+      <VButton icon="bell" />
+      <VButton variant="primary">
+        <VSvg class="w-4 h-4" name="plus" />
+        Add Task</VButton>
     </div>
   </header>
 </template>

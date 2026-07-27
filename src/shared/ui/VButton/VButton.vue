@@ -11,8 +11,10 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const slots = useSlots()
 
 const variants = {
-  default: 'bg-purple-600 text-white',
-  primary: 'bg-primary hover:bg-secondary-300 hover:text-default',
+  default:
+    'px-5 py-2 rounded-xl text-sm font-semibold font-body text-muted-foreground bg-card border border-stroke',
+  primary:
+    'px-5 py-2.5 rounded-xl font-semibold text-sm text-primary-foreground primary-bg',
   outline: 'border border-primary text-primary hover:bg-secondary',
   link: 'text-primary',
   custom: '',
@@ -24,7 +26,7 @@ const classes = computed(() => {
   }
 
   return [
-    'flex items-center justify-center gap-3',
+    'flex items-center justify-center gap-2',
     props.disabled
       ? 'cursor-not-allowed bg-slate-700 text-slate-500'
       : `${variants[props.variant]} cursor-pointer`,
@@ -42,7 +44,7 @@ if (import.meta.env.DEV) {
 
 <template>
   <button
-    :class="[classes, props.variant !== 'custom' && !$slots.icon && 'px-5 py-4 lg:px-6']"
+    :class="[classes, props.variant !== 'custom' && !$slots.icon && 'px-5 py-2']"
     :disabled="props.disabled"
     :type="props.type"
     :aria-label="props.ariaLabel"
@@ -55,3 +57,9 @@ if (import.meta.env.DEV) {
     </template>
   </button>
 </template>
+
+<style scoped>
+.primary-bg {
+  background: linear-gradient(135deg, #7c3aed, #f72585);
+}
+</style>
