@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { StatCard } from '@/shared/ui/statCard'
-import { computed } from 'vue'
+import { computed, type ComputedRef } from 'vue'
+import type { StatCardProps } from '@/shared/ui/statCard/StatCard.types.ts'
 
-const cards = computed(() => [
+const statCards: ComputedRef<StatCardProps[]> = computed(() => [
   {
     title: 'Total Tasks',
     icon: 'list',
@@ -36,7 +37,7 @@ const cards = computed(() => [
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <StatCard v-for="(card, index) in cards" :key="index" v-bind="card" />
+    <StatCard v-for="(card, index) in statCards" :key="index" v-bind="card" />
   </div>
 </template>
 
