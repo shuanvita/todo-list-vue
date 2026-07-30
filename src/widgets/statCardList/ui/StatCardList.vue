@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { StatCard } from '@/shared/ui/statCard'
 import { computed, type ComputedRef } from 'vue'
-import type { StatCardProps } from '@/shared/ui/statCard/StatCard.types'
+import type { StatCardProps } from '@/shared/ui/statCard'
 
 const statCards: ComputedRef<StatCardProps[]> = computed(() => [
   {
