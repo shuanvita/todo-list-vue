@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
-import { type Ref, ref } from 'vue'
+import { ref } from 'vue'
 import type { TaskItemProps } from '@/entities/task'
 
 export const useTasksStore = defineStore('useTasksStore', () => {
-  const tasks: Ref<TaskItemProps[]> = ref([])
+  const tasks = ref<TaskItemProps[]>([])
 
   const onAddTask = (task: TaskItemProps) => {
     tasks.value.push(task)

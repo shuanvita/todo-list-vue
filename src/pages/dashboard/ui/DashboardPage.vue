@@ -2,7 +2,7 @@
 import { StatCardList } from '@/widgets/statCardList'
 import { VInput } from '@/shared/ui/VInput'
 import VButton from '@/shared/ui/VButton'
-import { useTasksStore } from '@/entities/task'
+import { TaskItem, useTasksStore } from '@/entities/task'
 import { type Ref, ref } from 'vue'
 import type { TaskItemProps } from '@/entities/task'
 
@@ -41,7 +41,12 @@ const handleNewTask = () => {
     <StatCardList />
     <VInput v-model.trim="task.text" placeholder="Add task..." @keyup.enter="handleNewTask" />
     <VButton variant="primary" @click="handleNewTask">Add task</VButton>
-    <div v-for="item in store.tasks" :key="item.id">{{ item.text }}</div>
+<!--    <div v-for="item in store.tasks" :key="item.id">{{ item.text }}</div>-->
+    <TaskItem
+      v-for="item in store.tasks"
+      :key="item.id"
+      v-bind="item"
+    />
   </div>
 </template>
 
