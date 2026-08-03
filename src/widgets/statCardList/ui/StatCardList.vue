@@ -2,12 +2,15 @@
 import { StatCard } from '@/shared/ui/statCard'
 import { computed, type ComputedRef } from 'vue'
 import type { StatCardProps } from '@/shared/ui/statCard'
+import { useTasksStore } from '@/entities/task'
+
+const store = useTasksStore()
 
 const statCards: ComputedRef<StatCardProps[]> = computed(() => [
   {
     title: 'Total Tasks',
     icon: 'list',
-    count: 24,
+    count: store.countTasks,
     text: '+3 added today',
     variant: 'overdue',
   },

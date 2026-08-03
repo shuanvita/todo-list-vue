@@ -8,10 +8,9 @@ import type { TaskItemProps } from '@/entities/task'
 
 const store = useTasksStore()
 
-const { onAddTask } = store
+const { onAddTask, onRemoveTask, onCompleteTask } = store
 
 const task: Ref<Omit<TaskItemProps, 'id' | 'isCompleted'>> = ref({
-  id: '',
   text: '',
   project: {
     title: 'Design',
@@ -41,11 +40,12 @@ const handleNewTask = () => {
     <StatCardList />
     <VInput v-model.trim="task.text" placeholder="Add task..." @keyup.enter="handleNewTask" />
     <VButton variant="primary" @click="handleNewTask">Add task</VButton>
-<!--    <div v-for="item in store.tasks" :key="item.id">{{ item.text }}</div>-->
     <TaskItem
       v-for="item in store.tasks"
       :key="item.id"
       v-bind="item"
+      @delete-task="onRemoveTask(item.id)"
+      @toggle-complete="onCompleteTask(item.id)"
     />
   </div>
 </template>

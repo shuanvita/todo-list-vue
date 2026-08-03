@@ -3,8 +3,11 @@ import VButton from '@/shared/ui/VButton/VButton.vue'
 import { useRoute } from 'vue-router'
 import VSvg from '@/shared/ui/VSvg'
 import { VInput } from '@/shared/ui/VInput'
+import { VModal } from '@/shared/ui/VModal'
+import { ref } from 'vue'
 
 const router = useRoute()
+const open = ref(false)
 </script>
 
 <template>
@@ -16,9 +19,11 @@ const router = useRoute()
     <div class="flex items-center justify-between gap-3">
       <VInput placeholder="Search tasks..." />
       <VButton icon="bell" />
-      <VButton variant="primary">
-        <VSvg class="w-4 h-4" name="plus" />
-        Add Task</VButton>
+      <VButton variant="primary" @click="open = true">
+        <VModal :is-open="open" />
+        <VSvg class="h-4 w-4" name="plus" />
+        Add Task</VButton
+      >
     </div>
   </header>
 </template>
