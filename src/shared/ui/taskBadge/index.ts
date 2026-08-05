@@ -1,3 +1,3 @@
-import TaskBadge from '@/shared/ui/taskBadge/ui/TaskBadge.vue'
+import TaskBadge from './TaskBadge.vue'
 
 export { TaskBadge }
