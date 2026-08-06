@@ -20,5 +20,7 @@ export const useTasksStore = defineStore('useTasksStore', () => {
 
   const countTasks = computed(() => tasks.value.length)
 
+  const countCompletedTasks = computed(() => {})
+
   return { tasks, onAddTask, onRemoveTask, onCompleteTask, countTasks }
 })

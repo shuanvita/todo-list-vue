@@ -7,7 +7,8 @@ import { VModal } from '@/shared/ui/VModal'
 import { ref } from 'vue'
 
 const router = useRoute()
-const open = ref(false)
+
+const openModal = ref(false)
 </script>
 
 <template>
@@ -19,13 +20,16 @@ const open = ref(false)
     <div class="flex items-center justify-between gap-3">
       <VInput placeholder="Search tasks..." />
       <VButton icon="bell" />
-      <VButton variant="primary" @click="open = true">
-        <VModal :is-open="open" />
+      <VButton variant="primary" @click="openModal = true">
         <VSvg class="h-4 w-4" name="plus" />
-        Add Task</VButton
-      >
+        Add Task
+      </VButton>
     </div>
   </header>
+  <VModal v-model="openModal">
+    <div class="font-headings text-foreground text-xl font-bold">Manage Categories</div>
+    <div class="font-headings text-foreground mb-3 text-sm font-semibold">Your Categories</div>
+  </VModal>
 </template>
 
 <style scoped></style>
