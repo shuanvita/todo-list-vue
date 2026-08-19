@@ -1,0 +1,33 @@
+@import '@fontsource/jetbrains-mono';
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'JetBrains Mono', monospace;
+  --default-font-size: 16px;
+  --default-line-height: 1.5;
+  --color-foreground: #1a0a3c;
+  --color-foreground-muted: #7a7060;
+  --color-muted: #e3dcf7;
+  --color-muted-foreground: #7c6faa;
+  --color-primary: #7c3aed;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a0a3c;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #252219;
+  --color-background: #f4f0ff;
+  --color-stroke: #d9cfef;
+}
+
+@layer base {
+  body {
+    font-size: var(--default-font-size);
+    font-optical-sizing: auto;
+    line-height: var(--default-line-height);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+  }
+}
+
+.container {
+  @apply mx-auto max-w-360 px-4 xl:px-8;
+}
