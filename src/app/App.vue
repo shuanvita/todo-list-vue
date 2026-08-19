@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import VSvg from '@/shared/ui/VSvg'
+import HomePage from '@/pages/home'
 </script>
 
 <template>
-  <VSvg class="w-20 h-20 text-red-900" name="plus" />
+  <HomePage />
 </template>
-
-<style scoped></style>
