@@ -1,5 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TheHeader } from '@/widgets/the-header'
+import { TasksList } from '@/widgets/task-list'
+</script>
 
 <template>
-  <div class="container">Home Page</div>
+  <div class="container">
+    <TheHeader class="mb-11" />
+    <TasksList />
+  </div>
 </template>
