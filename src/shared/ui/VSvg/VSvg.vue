@@ -18,7 +18,7 @@ const props = withDefaults(
   { decorative: true },
 )
 
-const modules = import.meta.glob<{ default: object }>('@/shared/ui/icons/*.svg', {
+const modules = import.meta.glob<{ default: object }>('@/shared/icons/*.svg', {
   eager: true,
 })
 

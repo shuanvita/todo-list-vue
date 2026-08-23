@@ -9,7 +9,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['./src/shared/ui/svg/**'],
+    files: ['./src/shared/icons/**'],
     rules: {
       'fsd/public-api': 'off',
     },
