@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { formatDate } from '../lib/formatDate'
+import { formatDateLong } from '@/shared/lib/formatDate'
 import StatItem from './StatItem.vue'
 
-const today = formatDate()
+const today = formatDateLong()
 </script>
 
 <template>
