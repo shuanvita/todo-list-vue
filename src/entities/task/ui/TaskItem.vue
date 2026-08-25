@@ -7,13 +7,14 @@ import { VButton } from '@/shared/ui/VButton'
 const date = formatDateShort()
 
 defineProps<{
-  isChecked?: boolean
   id: string
   label: string
+  orderNumber: number
 }>()
 
 defineEmits<{
   'delete-task': [id: string]
+  'complete-task': [id: string]
 }>()
 </script>
 
@@ -22,11 +23,11 @@ defineEmits<{
     class="border-stroke last:border-b-none group/row hover:bg-secondary/40 flex items-start justify-between gap-2 border-b p-4 transition-colors duration-100"
   >
     <div>
-      <VCheckbox :id="id" class="mb-1" :label="label" />
+      <VCheckbox :id="id" class="mb-1" :label="label" @input="$emit('complete-task', id)" />
       <div class="text-fg-muted mt-1 pl-[34px] text-xs tracking-wider uppercase">{{ date }}</div>
     </div>
     <div class="flex items-center gap-4">
-      <div class="text-fg-muted/40 mt-0.5 shrink-0 text-xs tabular-nums">01</div>
+      <div class="text-fg-muted/40 mt-0.5 shrink-0 text-xs tabular-nums">{{ orderNumber }}</div>
       <VButton class="group/btn" variant="custom" @click="$emit('delete-task', id)">
         <template #icon>
           <VSvg

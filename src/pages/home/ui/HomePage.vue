@@ -11,13 +11,18 @@ const store = useTasks()
 <template>
   <div class="container">
     <TheHeader class="mb-11" />
-    <AddTask />
-    <TaskItem
-      v-for="task in store.tasks"
-      :key="task.id"
-      :id="task.id"
-      :label="task.text"
-      @delete-task="store.deleteTask(task.id)"
-    />
+    <AddTask class="mb-6" />
+    <div v-if="store.tasks.length" class="border-stroke border">
+      <TaskItem
+        :class="['last:border-b-0', { 'line-through': task.isComplete }]"
+        v-for="(task, index) in store.tasks"
+        :key="task.id"
+        :id="task.id"
+        :label="task.text"
+        :order-number="index + 1"
+        @delete-task="store.deleteTask(task.id)"
+        @complete-task="store.completedTask(task.id)"
+      />
+    </div>
   </div>
 </template>

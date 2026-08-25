@@ -11,5 +11,10 @@ export const useTasks = defineStore('useTasks', () => {
     tasks.value = tasks.value.filter((task) => task.id !== id)
   }
 
-  return { tasks, addTask, deleteTask }
+  const completedTask = (id: string) => {
+    const task = tasks.value.find((item) => item.id === id)
+    if (task) task.isComplete = !task.isComplete
+  }
+
+  return { tasks, addTask, deleteTask, completedTask }
 })
