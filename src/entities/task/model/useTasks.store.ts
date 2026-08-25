@@ -7,5 +7,9 @@ export const useTasks = defineStore('useTasks', () => {
 
   const addTask = (task: Task) => tasks.value.push(task)
 
-  return { tasks, addTask }
+  const deleteTask = (id: string) => {
+    tasks.value = tasks.value.filter((task) => task.id !== id)
+  }
+
+  return { tasks, addTask, deleteTask }
 })
