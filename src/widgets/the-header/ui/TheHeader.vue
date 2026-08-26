@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { formatDateLong } from '@/shared/lib/formatDate'
 import StatItem from './StatItem.vue'
+import { useTasks } from '@/entities/task'
 
 const today = formatDateLong()
+
+const store = useTasks()
 </script>
 
 <template>
@@ -14,8 +17,8 @@ const today = formatDateLong()
       </div>
     </div>
     <div class="flex gap-6 text-right uppercase">
-      <StatItem :count="3" label="Готово" variant="primary" />
-      <StatItem :count="2" label="Осталось" />
+      <StatItem :count="store.completedTasks" label="Готово" variant="primary" />
+      <StatItem :count="store.inProgressTasks" label="Осталось" />
     </div>
   </header>
 </template>

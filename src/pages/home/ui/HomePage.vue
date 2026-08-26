@@ -12,17 +12,19 @@ const store = useTasks()
   <div class="container">
     <TheHeader class="mb-11" />
     <AddTask class="mb-6" />
-    <div v-if="store.tasks.length" class="border-stroke border">
+    <div v-if="store.tasks.length" class="border-stroke mb-6 border">
       <TaskItem
-        :class="['last:border-b-0', { 'line-through': task.isComplete }]"
         v-for="(task, index) in store.tasks"
         :key="task.id"
-        :id="task.id"
         :label="task.text"
         :order-number="index + 1"
         @delete-task="store.deleteTask(task.id)"
-        @complete-task="store.completedTask(task.id)"
+        @complete-task="store.doneTask(task.id)"
       />
+    </div>
+    <div class="text-fg-muted flex items-center justify-between text-xs uppercase">
+      <div>{{ store.tasks.length }} всего задач</div>
+      <div>Enter - добавить</div>
     </div>
   </div>
 </template>

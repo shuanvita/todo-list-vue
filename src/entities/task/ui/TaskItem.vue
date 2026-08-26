@@ -7,7 +7,6 @@ import { VButton } from '@/shared/ui/VButton'
 const date = formatDateShort()
 
 defineProps<{
-  id: string
   label: string
   orderNumber: number
 }>()
@@ -20,10 +19,10 @@ defineEmits<{
 
 <template>
   <div
-    class="border-stroke last:border-b-none group/row hover:bg-secondary/40 flex items-start justify-between gap-2 border-b p-4 transition-colors duration-100"
+    class="border-stroke group/row hover:bg-secondary/40 flex items-start justify-between gap-2 border-b p-4 transition-colors duration-100"
   >
     <div>
-      <VCheckbox :id="id" class="mb-1" :label="label" @input="$emit('complete-task', id)" />
+      <VCheckbox class="mb-1" :label="label" @input="$emit('complete-task', id)" />
       <div class="text-fg-muted mt-1 pl-[34px] text-xs tracking-wider uppercase">{{ date }}</div>
     </div>
     <div class="flex items-center gap-4">

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { Task } from '@/entities/task'
 
 export const useTasks = defineStore('useTasks', () => {
@@ -11,10 +11,14 @@ export const useTasks = defineStore('useTasks', () => {
     tasks.value = tasks.value.filter((task) => task.id !== id)
   }
 
-  const completedTask = (id: string) => {
+  const doneTask = (id: string) => {
     const task = tasks.value.find((item) => item.id === id)
     if (task) task.isComplete = !task.isComplete
   }
 
-  return { tasks, addTask, deleteTask, completedTask }
+  const completedTasks = computed(() => tasks.value.filter((task) => task.isComplete).length)
+
+  const inProgressTasks = computed(() => tasks.value.filter((task) => !task.isComplete).length)
+
+  return { tasks, addTask, deleteTask, doneTask, completedTasks, inProgressTasks }
 })
