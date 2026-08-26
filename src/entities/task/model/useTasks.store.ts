@@ -8,17 +8,28 @@ export const useTasks = defineStore('useTasks', () => {
   const addTask = (task: Task) => tasks.value.push(task)
 
   const deleteTask = (id: string) => {
-    tasks.value = tasks.value.filter((task) => task.id !== id)
+    tasks.value = tasks.value.filter((task: Task) => task.id !== id)
   }
 
   const doneTask = (id: string) => {
-    const task = tasks.value.find((item) => item.id === id)
+    const task = tasks.value.find((item: Task) => item.id === id)
     if (task) task.isComplete = !task.isComplete
   }
 
-  const completedTasks = computed(() => tasks.value.filter((task) => task.isComplete).length)
+  const clearCompleted = () => {
+    tasks.value = tasks.value.filter((task) => !task.isComplete)
+  }
 
-  const inProgressTasks = computed(() => tasks.value.filter((task) => !task.isComplete).length)
+  const completedTasks = computed(() => tasks.value.filter((task: Task) => task.isComplete).length)
 
-  return { tasks, addTask, deleteTask, doneTask, completedTasks, inProgressTasks }
+  const progressTasks = computed(() => tasks.value.filter((task: Task) => !task.isComplete).length)
+
+  return {
+    tasks,
+    addTask,
+    deleteTask,
+    doneTask,
+    completedTasks,
+    progressTasks,
+  }
 })

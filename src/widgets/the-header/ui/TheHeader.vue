@@ -18,7 +18,7 @@ const store = useTasks()
     </div>
     <div class="flex gap-6 text-right uppercase">
       <StatItem :count="store.completedTasks" label="Готово" variant="primary" />
-      <StatItem :count="store.inProgressTasks" label="Осталось" />
+      <StatItem :count="store.progressTasks" label="Осталось" />
     </div>
   </header>
 </template>

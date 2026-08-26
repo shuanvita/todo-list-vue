@@ -21,7 +21,7 @@ const slots = useSlots()
 const variants: Record<ButtonVariant, string> = {
   primary: 'px-3 py-3 bg-primary hover:bg-primary/90 text-fg-primary font-bold',
   secondary:
-    'px-3 py-3 border border-stroke text-fg-muted hover:bg-secondary hover:text-fg font-medium',
+    'px-3 py-2 border border-stroke text-fg-muted hover:bg-secondary hover:text-fg font-medium',
   link: 'text-fg-muted hover:text-accent p-0',
   custom: '',
 }
