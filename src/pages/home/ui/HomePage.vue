@@ -4,7 +4,6 @@ import { AddTask } from '@/features/add-task'
 import { FilterTasks } from '@/features/filter-tasks'
 import { useTaskFilter } from '@/features/filter-tasks'
 import { TaskItem } from '@/entities/task'
-
 import { useTasks } from '@/entities/task'
 
 const store = useTasks()

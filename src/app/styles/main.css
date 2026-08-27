@@ -1,18 +1,25 @@
-@import '@fontsource/jetbrains-mono';
+@import '@fontsource/inter';
+@import '@fontsource/geist-mono';
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'JetBrains Mono', monospace;
-  --default-font-size: 15px;
-  --default-line-height: 1.625;
-  --color-background: #0a0a0a;
-  --color-fg: #e8e8e0;
-  --color-fg-primary: #0a0a0a;
-  --color-fg-muted: #666660;
-  --color-primary: #c8f135;
-  --color-secondary: #1c1c1c;
-  --color-accent: #ff3b30;
-  --color-stroke: rgba(255, 255, 255, 0.1);
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --default-font-size: 14px;
+  --default-line-height: 1.3;
+  --color-background: #0f0f14;
+  --color-card: #16161f;
+  --color-primary: #7c6ef5;
+  --color-secondary: #1e1e2a;
+  --color-destructive: #f05a5a;
+  --color-fg: #e2e2f0;
+  --color-fg-muted: #5a5a7a;
+  --color-fg-primary: #ffffff;
+  --color-stroke: rgba(124, 110, 245, 0.12);
+  --color-ring: #7c6ef5;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
 }
 
 @layer base {
