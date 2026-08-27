@@ -27,6 +27,12 @@ const { visibleTasks } = useTaskFilter()
         @complete-task="store.doneTask(task.id)"
       />
     </div>
+    <div
+      class="text-fg-muted border-stroke mb-6 flex items-center justify-center border p-6"
+      v-else
+    >
+      <div>Список задач пока пуст</div>
+    </div>
     <footer class="text-fg-muted flex items-center justify-between text-xs uppercase">
       <div>{{ store.tasks.length }} всего задач</div>
       <div>Enter - добавить</div>

@@ -31,5 +31,6 @@ export const useTasks = defineStore('useTasks', () => {
     doneTask,
     completedTasks,
     progressTasks,
+    clearCompleted,
   }
 })
