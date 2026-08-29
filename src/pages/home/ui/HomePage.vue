@@ -7,6 +7,7 @@ import { TaskItem } from '@/entities/task'
 import { useTasks } from '@/entities/task'
 import { VInput } from '@/shared/ui/VInput'
 import VSvg from '@/shared/ui/VSvg'
+import { VSelect } from '@/shared/ui/VSelect'
 
 const store = useTasks()
 const { visibleTasks } = useTaskFilter()
@@ -17,6 +18,13 @@ const { visibleTasks } = useTaskFilter()
     <TheHeader class="mb-11" />
     <AddTask class="mb-8" />
     <FilterTasks class="mb-6" />
+    <VSelect
+      class="mb-10"
+      :options="[
+        { label: 'Открыта', value: 'open' },
+        { label: 'Закрыта', value: 'closed' },
+      ]"
+    />
     <div v-if="store.tasks.length" class="border-stroke mb-6 border">
       <TaskItem
         v-for="(task, index) in visibleTasks"
