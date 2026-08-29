@@ -25,7 +25,7 @@ const uniqueId = useId()
 
 <template>
   <div class="flex w-full flex-col gap-2">
-    <label class="text-fg" :for="uniqueId" v-if="label">{{ label }}</label>
+    <label v-if="label" class="text-fg" :for="uniqueId">{{ label }}</label>
     <input
       class="placeholder:text-fg-muted focus:border-primary border-stroke h-full w-full border bg-transparent px-3 py-2 text-sm transition-colors duration-200 outline-none"
       v-bind="$attrs"
