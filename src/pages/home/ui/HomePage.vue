@@ -5,7 +5,7 @@ import { FilterTasks } from '@/features/filter-tasks'
 import { useTaskFilter } from '@/features/filter-tasks'
 import { TaskItem } from '@/entities/task'
 import { useTasks } from '@/entities/task'
-import { VCheckbox } from '@/shared/ui/VCheckbox'
+import { VInput } from '@/shared/ui/VInput'
 
 const store = useTasks()
 const { visibleTasks } = useTaskFilter()
@@ -16,10 +16,9 @@ const { visibleTasks } = useTaskFilter()
     <TheHeader class="mb-11" />
     <AddTask class="mb-8" />
     <FilterTasks class="mb-6" />
-    <VCheckbox class="mb-10" error errorMessage="Поле обязательно к заполнению"
-      >Купить продукты</VCheckbox
-    >
-    <VCheckbox class="mb-10" label="test" />
+    <VInput class="mb-8" placeholder="Добавить задачу..." error error-message="fdsfsdf" />
+    <VInput class="mb-8" placeholder="Добавить задачу..." />
+    <VInput class="mb-8" placeholder="Добавить задачу..." disabled />
     <div v-if="store.tasks.length" class="border-stroke mb-6 border">
       <TaskItem
         v-for="(task, index) in visibleTasks"
