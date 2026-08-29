@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+import type { Component } from 'vue'
 
 /**
  * Универсальный компонент для рендера SVG по имени файла (иконки, схемы, графика).
@@ -18,22 +19,37 @@ const props = withDefaults(
   { decorative: true },
 )
 
-const modules = import.meta.glob<{ default: object }>('@/shared/icons/*.svg', {
+const attrs = useAttrs()
+
+const modules = import.meta.glob<{ default: Component }>('@/shared/icons/*.svg', {
   eager: true,
 })
 
-const icon = computed(() => {
-  const entry = Object.entries(modules).find(([path]) => path.endsWith(`/${props.name}.svg`))
+const iconsByName = new Map(
+  Object.entries(modules).map(([path, mod]) => {
+    const name = path.match(/([^/]+)\.svg$/)?.[1] ?? path
+    return [name, mod.default]
+  }),
+)
 
-  if (!entry) {
+const icon = computed(() => {
+  const found = iconsByName.get(props.name)
+
+  if (!found) {
     console.warn(`[VSvg] SVG not found: ${props.name}`)
     return null
   }
 
-  return entry[1].default
+  if (!props.decorative && !attrs['aria-label'] && !attrs['aria-labelledby']) {
+    console.warn(
+      `[VSvg] name="${props.name}": decorative=false requires aria-label or aria-labelledby`,
+    )
+  }
+
+  return found
 })
 </script>
 
 <template>
-  <component :is="icon" role="img" :aria-hidden="decorative || undefined" />
+  <component v-if="icon" :is="icon" role="img" :aria-hidden="decorative || undefined" />
 </template>
