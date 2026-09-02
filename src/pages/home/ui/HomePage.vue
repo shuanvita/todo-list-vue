@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import { TheHeader } from '@/widgets/the-header'
 import { AddTask } from '@/features/add-task'
 import { FilterTasks } from '@/features/filter-tasks'
 import { useTaskFilter } from '@/features/filter-tasks'
 import { TaskItem } from '@/entities/task'
 import { useTasks } from '@/entities/task'
-import { VInput } from '@/shared/ui/VInput'
-import VSvg from '@/shared/ui/VSvg'
 import { VSelect } from '@/shared/ui/VSelect'
 
 const store = useTasks()
